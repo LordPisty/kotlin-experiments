@@ -1,6 +1,7 @@
 package koans
 
 import org.junit.Assert
+import java.util.regex.Pattern
 import org.junit.Test as test
 
 /**
@@ -32,5 +33,17 @@ class TestKoans {
     @test fun testNamedLambda() {
         Assert.assertEquals("Returned collection should match", 1, filterOdds(listOf(1, 2, 3)).size)
         Assert.assertEquals("Returned boolean should match", true, containsEven(filterOdds(listOf(1, 2, 3))))
+    }
+
+    @test fun match() {
+        Assert.assertTrue(Pattern.compile(getPattern()).matcher("11 MAR 1952").find())
+    }
+
+    @test fun match1() {
+        Assert.assertTrue(Pattern.compile(getPattern()).matcher("24 AUG 1957").find())
+    }
+
+    @test fun doNotMatch() {
+        Assert.assertFalse(Pattern.compile(getPattern()).matcher("24 RRR 1957").find())
     }
 }

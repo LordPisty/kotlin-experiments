@@ -14,3 +14,7 @@ fun namedArguments(paramA: String = "a", paramB: Int = 3): String = paramA + par
 fun containsEven(collection: Collection<Int>): Boolean = collection.any { x -> x % 2 == 0 }
 fun evenPredicate(x: Int): Boolean = x % 2 == 0
 fun filterOdds(collection: Collection<Int>): Collection<Int> = collection.filter(::evenPredicate)
+
+// regex patterns
+val month = "(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)"
+fun getPattern() = """(\d{2}) """ + month + """ (\d{4})"""
